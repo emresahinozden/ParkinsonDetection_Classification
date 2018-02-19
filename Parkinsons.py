@@ -241,7 +241,7 @@ PercFOR = (CM_FOR[0,0]+CM_FOR[1,1])/CM_FOR.sum()
 from sklearn.ensemble import VotingClassifier
 Models = []
 Models.append(('KNN', classifierKNN))
-Models.append(('SVC', classifierSVC))
+#Models.append(('SVC', classifierSVC))
 Models.append(('Tree', classifierTREE))
 
 ensemble = VotingClassifier(Models)
@@ -260,6 +260,7 @@ PercENS = (CM_ENS[0,0]+CM_ENS[1,1])/CM_ENS.sum()
 #Now I visualize the logistic Regression, a better fiting model: KNN, and best fitting model: Random Forest
 #I get these virtualization codes from internet and I dont have a deep understanding on plt.contourf
 #The two variable I will use in virtualizing will be Hold and Latency
+
 #Logistic Regression Visualization
 
 from matplotlib.colors import ListedColormap
@@ -270,6 +271,7 @@ classifierLogReg_graph.fit(X_graph, y_graph)
 X_set, y_set = X_graph, y_graph
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
+plt.figure(1)
 plt.contourf(X1, X2, classifierLogReg_graph.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 plt.xlim(X1.min(), X1.max())
@@ -291,6 +293,7 @@ classifierKNN_graph.fit(X_graph, y_graph)
 X_set, y_set = X_graph, y_graph
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
+plt.figure(2)
 plt.contourf(X1, X2, classifierKNN_graph.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 plt.xlim(X1.min(), X1.max())
@@ -305,6 +308,28 @@ plt.legend()
 plt.show()
 
 
+#SVM Visualization
+classifierSVC_graph = SVC(kernel = 'rbf', random_state = 0)
+classifierSVC_graph.fit(X_graph, y_graph)
+
+X_set, y_set = X_graph, y_graph
+X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
+                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
+plt.figure(3)
+plt.contourf(X1, X2, classifierSVC_graph.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
+             alpha = 0.75, cmap = ListedColormap(('red', 'green')))
+plt.xlim(X1.min(), X1.max())
+plt.ylim(X2.min(), X2.max())
+for i, j in enumerate(np.unique(y_set)):
+    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
+                c = ListedColormap(('red', 'green'))(i), label = j)
+plt.title('SVM')
+plt.xlabel('Latency')
+plt.ylabel('Hold')
+plt.legend()
+plt.show()
+
+
 #Random Forest Visualization
 classifierFOR_graph = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
 classifierFOR_graph.fit(X_graph, y_graph)
@@ -312,6 +337,7 @@ classifierFOR_graph.fit(X_graph, y_graph)
 X_set, y_set = X_graph, y_graph
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
+plt.figure(4)
 plt.contourf(X1, X2, classifierFOR_graph.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 plt.xlim(X1.min(), X1.max())
@@ -324,4 +350,4 @@ plt.xlabel('Latency')
 plt.ylabel('Hold')
 plt.legend()
 plt.show()
-
+close(fig)
