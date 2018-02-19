@@ -1,0 +1,67 @@
+The command lines in the first (extracting, integrating, cleaning) part of code is as follows:
+
+#Under "Archived users" folder there are 227 users and their respective information
+#I extract and append them in a dataframe as a start
+
+#Under "Tappy Data" folder there are 621 text files regarding the keyboard type movements of the users
+#I extract and append them in a dataframe similarly, 
+#but slightly different from because their structure is also different from the previous user files
+
+#I join the two dataframes in one big dataframe and then after I start to clean data
+
+#I remove the users that has less than 2000 keystrokes (also as done in the study itself)
+#Ref: The complete dataset comprised 217 participants, 
+#however only some of those were included the subsequent analysis, comprising:
+#Those with at least 2000 keystrokes
+
+#Ref: Of the ones with PD, just the ones with ‘Mild’ severity 
+#(since the study was into the detection of PD at its early stage, not later stages)
+
+#Ref: Those not taking levodopa
+
+#I drop the irrelevant columns such as Users or Levadopa and Impact since those columns are consisted of all same value after filtering
+
+#Now I deal with the categorical data: Key Location, Movement, Gender, Sided, Parkinsons
+#I start by numeralize them, and when all the values are numeralized I will scale them in order to create
+#a balanced numeric dataframe. Otherwise a column's bigger magnitudes can be over-affecting the calculations in algorithms.
+
+#Now, since the Movement fields are named 1,2,3,4 they can be mistaken for greater or lesser even dough there is no hierarchy among them
+#To cope with it, I use dummy encoding. Finally replace it with the previous column
+
+#I will not use these variables anymore, I delete them to save memory and for a clean working environment
+
+#I split the dataset into response variable and values
+
+#I split the X and y into training and test sets, I use scikit learn. I also define a subset of data for visualization.
+
+#Now, finally before fitting the classification model, I do the scaling. I again use scikit learn
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+The command lines in the second (modelling) part of code is as follows:
+
+#Now we are good to go, but there is one final consideration:
+#X_train is 600.000 rows and X_test is 150.000 rows. It will be very demanding to make computations on these large scales(Especially SVM)
+#So I reduce the size of datasets from 750.000 to 30.000 randomly by applying (0.2) two times:
+
+#First I use Logistic Regression for a model fitting
+
+#The algorithm has learnt on training set, now I will predict the outcomes on test set
+
+#I compare the predicted results with the actual results, I use a confussion matrix to easily see the types and errors
+
+#Next I use KNN to fit algorithm 
+
+(and other comment lines are just indicating the start of a new model)
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+The command lines in the third (visualization) part of code is as follows:
+
+#Now I visualize the logistic Regression, a better fiting model: KNN, and best fitting model: Random Forest
+#I get these virtualization codes from internet and I dont have a deep understanding on plt.contourf
+#The two variable I will use in virtualizing will be Hold and Latency
+
+#Logistic Regression Visualization
+
+(and other comment lines are just indicating the start of a new model)
