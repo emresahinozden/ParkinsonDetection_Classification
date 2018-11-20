@@ -1,7 +1,7 @@
 # Machine Learning Project
 
 This study is done for the Machine Learning project in University of Genoa under supervision of Lorenzo Rosasco and Alessandro Verri.
-It is coded in Python and the process is explained by in-line comments and the file "comments.txt".
+It is coded in Python and the process is explained by in-line comments and the file "Comments.txt".
 
 
 The study aims to create a model to detect Parkinson by the key stroke data.
