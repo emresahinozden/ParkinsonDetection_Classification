@@ -2,6 +2,7 @@
 
 The dataset contains keystroke logs collected from over 200 subjects, with and without Parkinson's Disease.
 The study aims to create a model to detect Parkinson by the key stroke data.
+
 For more information: https://www.kaggle.com/valkling/tappy-keystroke-data-with-parkinsons-patients/home 
 
 #Code explanation: 
