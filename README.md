@@ -5,11 +5,18 @@ The study aims to create a model to detect Parkinson by the key stroke data.
 
 For more information: https://www.kaggle.com/valkling/tappy-keystroke-data-with-parkinsons-patients/home 
 
+
+
 #Code explanation: 
 
+
+
 The code is basically of 3 parts:
+
 *data extraction, integration and cleaning
+
 *running alogrithms
+
 *visualization
 
 In the first part, code extracts users txt files and users' input txt files and merge all in a dataframe
