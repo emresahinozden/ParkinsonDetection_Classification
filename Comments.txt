@@ -1,4 +1,4 @@
-The command lines in the first (extracting, integrating, cleaning) part of code is as follows:
+The comment lines in the first (extracting, integrating, cleaning) part of code is as follows:
 
 #Under "Archived users" folder there are 227 users and their respective information
 #I extract and append them in a dataframe as a start
