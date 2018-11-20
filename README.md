@@ -1,7 +1,12 @@
 # Machine Learning Project
 
-The dataset contains keystroke logs collected from over 200 subjects, with and without Parkinson's Disease.
+This study is done for the Machine Learning project in University of Genoa under supervision of Lorenzo Rosasco and Alessandro Verri.
+It is coded in Python and the process is explained by in-line comments and the file "comments.txt".
+
+
 The study aims to create a model to detect Parkinson by the key stroke data.
+The dataset contains keystroke logs collected from over 200 subjects, with and without Parkinson's Disease.
+
 
 For more information: https://www.kaggle.com/valkling/tappy-keystroke-data-with-parkinsons-patients/home 
 
