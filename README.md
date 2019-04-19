@@ -44,5 +44,5 @@ The final part is on visualization of the models and their predictions
 I use a dataset of 1000 points randomly selected, 
 I use another dataset because my test set is to big to visualize (in cosmetic means) 
 
-I had used comment lines for clearer description and these lines are also in a text file called Comments.
+I used comment lines for more clear description and these lines are also in a text file called Comments.
 
